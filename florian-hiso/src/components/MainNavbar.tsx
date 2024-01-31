@@ -20,10 +20,7 @@ export default function MainNavbar() {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://media.licdn.com/dms/image/D4E03AQGu5poTTxvRaQ/profile-displayphoto-shrink_200_200/0/1697216965074?e=1712188800&v=beta&t=QH3tZ7ERRKlvKM2g4af33JXljvU2PDZsuh9_zvFaeTw"
-                />
+                <img alt="Tailwind CSS Navbar component" src="/avatar.jpg" />
               </div>
             </div>
             <ul

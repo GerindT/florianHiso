@@ -6,18 +6,18 @@ import Stats from "./components/Stats";
 import General from "./components/General";
 
 const colors = [
-  "default",
-  "neutral",
-  "primary",
-  "secondary",
-  "accent",
-  "ghost",
-  "outline",
-  "success",
-  "error",
-  "warning",
-  "info",
-  "dark",
+  "badge badge-default",
+  "badge badge-neutral",
+  "badge badge-primary",
+  "badge badge-secondary",
+  "badge badge-accent",
+  "badge badge-ghost",
+  "badge badge-outline",
+  "badge badge-success",
+  "badge badge-error",
+  "badge badge-warning",
+  "badge badge-info",
+  "badge badge-dark",
 ];
 
 function App() {
@@ -40,9 +40,9 @@ function App() {
                     .map((color, i) => (
                       <div
                         key={i}
-                        className={`badge badge-${color} cursor-pointer  transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105`}
+                        className={`${color} cursor-pointer  transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105`}
                       >
-                        {color}
+                        {color.split("-")[1]}
                       </div>
                     ))}
                 </>
