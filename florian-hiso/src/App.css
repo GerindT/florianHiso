@@ -5,3 +5,14 @@
   max-width: 1880px;
   margin: 0 auto;
 }
+.show {
+  display: block;
+  opacity: 1;
+  transition: opacity 0.5s linear; /* Adjust the duration and easing as needed */
+}
+
+.hide {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s linear; /* Adjust the duration and easing as needed */
+}
