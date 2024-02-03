@@ -43,7 +43,7 @@ export default function Admin() {
 
             <button
               type="submit"
-              className="text-white bg-primary hover:opacity-85 focus:ring-4 focus:outline-none focus:ring-base-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center text-base-100 "
+              className="text-base-200 bg-primary hover:opacity-85 focus:ring-4 focus:outline-none focus:ring-base-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center text-base-100 "
             >
               Submit
             </button>
