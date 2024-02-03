@@ -1,7 +1,7 @@
 export default function Posts() {
   return (
     <div
-      className="grid grid-cols-1 gap-[1em] md:grid-cols-2 "
+      className="grid grid-cols-1 gap-[1em] md:grid-cols-2 xl:grid-cols-3 "
       style={{
         gridTemplateColumns: "repeat(auto-fit, minmax(min-content, 1fr))",
       }}

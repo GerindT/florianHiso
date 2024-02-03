@@ -23,7 +23,7 @@ export default function MobileNav() {
 
   return (
     <div
-      className={`fixed z-50 w-[70%] h-16 max-w-lg -translate-x-1/2 bg-base-100 border border-base-200 rounded-full bottom-4 left-1/2 ${
+      className={`block md:hidden fixed z-50 w-[70%] h-16 max-w-lg -translate-x-1/2 bg-base-100 border border-base-200 rounded-full bottom-4 left-1/2 ${
         isVisible ? "show" : "hide"
       }`}
     >

@@ -1,7 +1,7 @@
 export default function Stats() {
   return (
-    <div className="flex justify-center items-center">
-      <div className="stats stats-horizontal shadow  mb-[1em]  bg-base-200">
+    <div className="flex justify-center items-center items-center ">
+      <div className="stats stats-horizontal shadow  mb-[1em]  bg-base-200 md:w-[60%] w-full">
         <div className="stat">
           <div className="stat-title">Downloads</div>
           <div className="stat-value">31K</div>

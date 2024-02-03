@@ -3,8 +3,7 @@ export default function Hero() {
     <div
       className="hero min-h-[89vh] bg-base-200 mb-[2em] rounded-xl "
       style={{
-        backgroundImage:
-          "url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)",
+        backgroundImage: "url(/hero.jpg)",
       }}
     >
       <div className="hero-overlay bg-opacity-60"></div>
