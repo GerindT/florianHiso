@@ -22,6 +22,12 @@ app.use(
   })
 ); // Enable all CORS requests
 
+console.log(
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:5173"
+    : "https://florian-hiso.netlify.app"
+);
+
 app.get("/", (request, response) => {
   response.json({ info: "Node.js, Express, and Postgres API" });
 });
