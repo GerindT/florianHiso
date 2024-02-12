@@ -24,6 +24,16 @@ Frontend using netlify cli (needs to be installed globally)
 
 - `ntl deploy --prod`
 
+## Backup
+
+Backups are maintained every 90 days using the postgres CLI:
+
+- Create the local dump file -> `pg_dump --no-owner -U postgres -d api > apiSql.sql`
+
+- Connect to remote database to dump the local sql file
+
+- `\c TempDatabase ` -> `Drop prodDatabase` -> `Create prodDatabase` -> `\c prodDatabase` -> `\i ./apiSql.sql`
+
 ## Enjoy 🥳
 
 > for every ε>0, there exists a δ>0, such that if 0<|x−a|<δ, then |f(x)−L|<ε .

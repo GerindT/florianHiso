@@ -1,18 +1,31 @@
-const Pool = require("pg").Pool;
-const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "api",
-  password: "admin",
-  port: 5432,
-});
+require("dotenv").config(); // Load environment variables from .env file
+
+const { Pool } = require("pg");
+
+const pool =
+  process.env.NODE_ENV === "production"
+    ? new Pool({
+        connectionString: process.env.DATABASE_URL,
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      })
+    : new Pool({
+        user: process.env.DB_USER,
+        host: process.env.DB_HOST,
+        database: process.env.DB_NAME,
+        password: process.env.DB_PASSWORD,
+        port: process.env.DB_PORT,
+      });
+
+console.log("process.env.NODE_ENV", process.env.NODE_ENV);
+
 const getBlogs = (request, response) => {
   pool.query("SELECT * FROM blogs ORDER BY id ASC", (error, results) => {
     if (error) {
       throw error;
     }
     response.status(200).json(results.rows);
-    return results.rows;
   });
 };
 
@@ -71,8 +84,4 @@ const getBlogs = (request, response) => {
 
 module.exports = {
   getBlogs,
-  // getUserById,
-  // createUser,
-  // updateUser,
-  // deleteUser,
 };
