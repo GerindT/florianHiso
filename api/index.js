@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors"); // Import the cors middleware
 const app = express();
-const port = 3000;
+const port = 3000 || process.env.PORT;
 
 const db = require("./queries");
 
