@@ -1,6 +1,6 @@
 export default function Timeline() {
   return (
-    <ul className="timeline timeline-vertical md:timeline-horizontal justify-center  ml-[4em] ">
+    <ul className="timeline timeline-vertical md:timeline-horizontal justify-center  ml-[4em] md:ml-[0em] ">
       <li className="w-[5vw] ">
         <div className="timeline-start">1984</div>
 

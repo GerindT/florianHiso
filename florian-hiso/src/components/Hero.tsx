@@ -19,7 +19,9 @@ export default function Hero() {
             to waste your time? You are in the right place. <br />
             We are here to help you.
           </p>
-          <button className="btn btn-primary">Come Child</button>
+          <button className="btn btn-primary">
+            <a href="#about"> Come Child </a>
+          </button>
         </div>
       </div>
     </div>
