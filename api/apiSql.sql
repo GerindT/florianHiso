@@ -60,7 +60,8 @@ CREATE TABLE public.blogs (
     title text NOT NULL,
     userid integer NOT NULL,
     content text NOT NULL,
-    createdat date DEFAULT CURRENT_DATE NOT NULL
+    createdat date DEFAULT CURRENT_DATE NOT NULL,
+    tags json NOT NULL
 );
 
 
@@ -106,7 +107,8 @@ CREATE TABLE public.projects (
     userid integer NOT NULL,
     content text NOT NULL,
     createdat date DEFAULT CURRENT_DATE NOT NULL,
-    url text NOT NULL
+    url text NOT NULL,
+    tags json NOT NULL
 );
 
 
@@ -211,12 +213,12 @@ COPY public.badges (id, name, color) FROM stdin;
 -- Data for Name: blogs; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.blogs (id, title, userid, content, createdat) FROM stdin;
-1	First Blog	1	This is the content of the first blog.	2024-02-12
-2	Second Blog	2	This is the content of the second blog.	2024-02-12
-3	Third Blog	1	This is the content of the third blog.	2024-02-12
-4	Fourth Blog	3	This is the content of the fourth blog.	2024-02-12
-5	Fifth Blog	2	This is the content of the fifth blog.	2024-02-12
+COPY public.blogs (id, title, userid, content, createdat, tags) FROM stdin;
+1	First Blog	1	This is the content of the first blog.	2024-02-12	{   "NLP":"badge-info",\r\n   "ML":"badge-success",\r\n   "AI":"badge-warning"}
+2	Second Blog	2	This is the content of the second blog.	2024-02-12	{   "NLP":"badge-info",\r\n   "ML":"badge-success",\r\n   "AI":"badge-warning"}
+3	Third Blog	1	This is the content of the third blog.	2024-02-12	{   "NLP":"badge-info",\r\n   "ML":"badge-success",\r\n   "AI":"badge-warning"}
+4	Fourth Blog	3	This is the content of the fourth blog.	2024-02-12	{   "NLP":"badge-info",\r\n   "ML":"badge-success",\r\n   "AI":"badge-warning"}
+5	Fifth Blog	2	This is the content of the fifth blog.	2024-02-12	{   "NLP":"badge-info",\r\n   "ML":"badge-success",\r\n   "AI":"badge-warning"}
 \.
 
 
@@ -224,10 +226,10 @@ COPY public.blogs (id, title, userid, content, createdat) FROM stdin;
 -- Data for Name: projects; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.projects (id, title, userid, content, createdat, url) FROM stdin;
-1	Project 1	1	Big chunga	2024-02-13	https://github.com/FlorianHiso18
-2	Project 2 	1	Mikajlli	2024-02-13	https://github.com/FlorianHiso18
-3	Project 3	1	Kur do mi cosh content Florian Hisa	2024-02-13	https://github.com/FlorianHiso18
+COPY public.projects (id, title, userid, content, createdat, url, tags) FROM stdin;
+2	Project 2 	1	Mikajlli	2024-02-13	https://github.com/FlorianHiso18	{\r\n   "NLP":"badge-info",\r\n   "ML":"badge-success",\r\n   "AI":"badge-warning"\r\n}\r\n
+3	Project 3	1	Kur do mi cosh content Florian Hisa	2024-02-13	https://github.com/FlorianHiso18	 {  "NLP":"badge-info",\r\n   "ML":"badge-success",\r\n   "AI":"badge-warning"}
+1	Project 1	1	\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis efficitur libero. Praesent nec velit eu nisl ultricies elementum sit amet vel ipsum. Fusce ultrices risus vel nulla sodales, eget mattis turpis tempor. Vivamus sagittis feugiat arcu nec vulputate. Phasellus eget tellus sapien. Quisque condimentum nulla nec massa facilisis, sit amet consectetur sapien tempus. Proin rhoncus laoreet augue nec tempor. Proin eu mauris et dui congue congue et ac elit.\r\n\r\nCras faucibus orci et metus pulvinar, sed malesuada eros molestie. Sed luctus arcu non mattis auctor. Maecenas eu elit elementum, pharetra nunc sed, mattis sem. Cras rutrum sagittis nisi feugiat venenatis. Phasellus ac consequat neque, eget sodales nibh. Vestibulum nec eros vel arcu eleifend suscipit ac eget nunc. Ut at justo ac velit imperdiet lobortis facilisis et orci. Nunc sit amet velit a quam gravida volutpat. Phasellus sit amet purus malesuada felis aliquam hendrerit in at justo. Donec placerat scelerisque neque et faucibus. Nulla vitae aliquam odio, id molestie est.\r\n\r\nVestibulum hendrerit leo lacus, ac scelerisque eros porttitor non. Vestibulum nulla tellus, laoreet vel velit nec, convallis malesuada ex. Nunc tristique viverra maximus. Cras congue condimentum elit in eleifend. Mauris nec mi sit amet nunc lacinia cursus. In quis faucibus turpis, id iaculis metus. Suspendisse fringilla nisl sit amet risus rutrum dapibus. Integer enim lorem, pretium malesuada metus non, feugiat vehicula tortor. Fusce tempor suscipit ultricies. Nunc mollis arcu nec elementum tempus. Quisque bibendum felis vitae dolor accumsan, tempor aliquet eros blandit.\r\n\r\nEtiam dictum vestibulum nulla ut iaculis. Ut nec nisi sollicitudin, cursus enim ac, ornare nunc. Proin non erat mauris. Phasellus eu felis in nisl mattis molestie. Donec laoreet dapibus turpis, nec pharetra urna. Vestibulum aliquam dolor vitae justo luctus, at scelerisque nulla fringilla. Etiam vel turpis ac tortor accumsan molestie sit amet non diam. Nam non sagittis erat. Nullam vitae neque eget lorem gravida commodo ut sed metus. Nulla quis est efficitur, facilisis quam eu, commodo mi.\r\n\r\nMaecenas maximus auctor arcu, quis feugiat odio. Etiam id leo pretium, egestas ligula quis, iaculis orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec molestie lorem sapien, vitae varius eros vestibulum eu. Aenean ut lectus ut erat rutrum rhoncus at sit amet erat. Morbi porttitor mattis ante, at sagittis tellus imperdiet pulvinar. Nunc id nibh et arcu pharetra luctus. Curabitur vulputate mollis purus id rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis efficitur libero. Praesent nec velit eu nisl ultricies elementum sit amet vel ipsum. Fusce ultrices risus vel nulla sodales, eget mattis turpis tempor. Vivamus sagittis feugiat arcu nec vulputate. Phasellus eget tellus sapien. Quisque condimentum nulla nec massa facilisis, sit amet consectetur sapien tempus. Proin rhoncus laoreet augue nec tempor. Proin eu mauris et dui congue congue et ac elit. Cras faucibus orci et metus pulvinar, sed malesuada eros molestie. Sed luctus arcu non mattis auctor. Maecenas eu elit elementum, pharetra nunc sed, mattis sem. Cras rutrum sagittis nisi feugiat venenatis. Phasellus ac consequat neque, eget sodales nibh. Vestibulum nec eros vel arcu eleifend suscipit ac eget nunc. Ut at justo ac velit imperdiet lobortis facilisis et orci. Nunc sit amet velit a quam gravida volutpat. Phasellus sit amet purus malesuada felis aliquam hendrerit in at justo. Donec placerat scelerisque neque et faucibus. Nulla vitae aliquam odio, id molestie est. Vestibulum hendrerit leo lacus, ac scelerisque eros porttitor non. Vestibulum nulla tellus, laoreet vel velit nec, convallis malesuada ex. Nunc tristique viverra maximus. Cras congue condimentum elit in eleifend. Mauris nec mi sit amet nunc lacinia cursus. In quis faucibus turpis, id iaculis metus. Suspendisse fringilla nisl sit amet risus rutrum dapibus. Integer enim lorem, pretium malesuada metus non, feugiat vehicula tortor. Fusce tempor suscipit ultricies. Nunc mollis arcu nec elementum tempus. Quisque bibendum felis vitae dolor accumsan, tempor aliquet eros blandit. Etiam dictum vestibulum nulla ut iaculis. Ut nec nisi sollicitudin, cursus enim ac, ornare nunc. Proin non erat mauris. Phasellus eu felis in nisl mattis molestie. Donec laoreet dapibus turpis, nec pharetra urna. Vestibulum aliquam dolor vitae justo luctus, at scelerisque nulla fringilla. Etiam vel turpis ac tortor accumsan molestie sit amet non diam. Nam non sagittis erat. Nullam vitae neque eget lorem gravida commodo ut sed metus. Nulla quis est efficitur, facilisis quam eu, commodo mi. Maecenas maximus auctor arcu, quis feugiat odio. Etiam id leo pretium, egestas ligula quis, iaculis orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec molestie lorem sapien, vitae varius eros vestibulum eu. Aenean ut lectus ut erat rutrum rhoncus at sit amet erat. Morbi porttitor mattis ante, at sagittis tellus imperdiet pulvinar. Nunc id nibh et arcu pharetra luctus. Curabitur vulputate mollis purus id rutrum.  	2024-02-13	https://github.com/FlorianHiso18	{   "NLP":"badge-info",\r\n   "ML":"badge-success",\r\n   "AI":"badge-warning"}
 \.
 
 
