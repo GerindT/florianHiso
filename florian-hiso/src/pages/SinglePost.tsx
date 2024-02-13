@@ -4,7 +4,7 @@ import MainNavbar from "../components/MainNavbar";
 import MobileNav from "../components/MobileNav";
 import Footer from "../components/Footer";
 import { IoIosTime } from "react-icons/io";
-import { formatDateDifference } from "../helper/dateHelper.js";
+import { formatDateDifference } from "../helper/dateHelper.ts";
 
 interface Post {
   id: number;
