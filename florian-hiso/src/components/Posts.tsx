@@ -1,14 +1,22 @@
+import { Link } from "react-router-dom";
+import { formatDateDifference } from "../helper/dateHelper.ts";
+import { IoIosTime } from "react-icons/io";
+
 type Project = {
+  id: number;
   title: string;
   content: string;
   url: string;
   createdat: string;
+  tags: object;
 };
 
 type Blog = {
+  id: number;
   title: string;
   content: string;
   createdat: string;
+  tags: object;
 };
 
 type Props = {
@@ -29,30 +37,57 @@ export default function Posts({ projectList, blogList }: Props) {
         <div key={i} className="card bg-base-300 shadow-xl">
           <div className="card-body">
             <h2 className="card-title">{project.title}</h2>
-            <p>{project.content}</p>
-            <p>{project.url}</p>
+            <h3>Florian Hiso</h3>
+            <p>{project.content.substring(0, 200)}...</p>
+            <a className="link">{project.url}</a>
+            <div className="badge  p-[0.8em] badge-primary opacity-80 cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+              <IoIosTime /> {formatDateDifference(project.createdat)}
+            </div>
+            <div className="flex gap-1">
+              {Object.entries(project.tags).map(([key, value], i) => (
+                <div
+                  key={i}
+                  className={`badge ${value} cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 `}
+                >
+                  {key}
+                </div>
+              ))}
+            </div>
+
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Take me there</button>
+              <Link to={`/projects/${project.id}`}>
+                <button className="btn btn-primary">Take me there</button>
+              </Link>
             </div>
           </div>
         </div>
       ))}
       {blogList.map((blog: Blog, i: number) => (
-        <div key={i} className="card bg-base-100 shadow-xl image-full">
-          <figure>
-            <img
-              src="https://assets.teenvogue.com/photos/5e6bffbbdee1770008c6d9bd/16:9/w_2560%2Cc_limit/GettyImages-577674005.jpg"
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
+        <div
+          key={i}
+          className="card bg-primary shadow-xl text-primary-content  "
+        >
+          <div className="card-body ">
             <h2 className="card-title">{blog.title}</h2>
-            <p>
-              {blog.content} <br />
-              {blog.createdat.split("T")[0]}
-            </p>
+            <h3>Florian Hiso</h3>
+            <p>{blog.content.substring(0, 200)}...</p>
+            <div className="badge p-[0.8em] opacity-80 cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+              <IoIosTime /> {formatDateDifference(blog.createdat)}
+            </div>
+            <div className="flex gap-1">
+              {Object.entries(blog.tags).map(([key, value], i) => (
+                <div
+                  key={i}
+                  className={`badge ${value} cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 `}
+                >
+                  {key}
+                </div>
+              ))}
+            </div>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Take me there</button>
+              <Link to={`/blogs/${blog.id}`}>
+                <button className="btn text-primary">Take me there</button>
+              </Link>
             </div>
           </div>
         </div>

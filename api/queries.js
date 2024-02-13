@@ -18,8 +18,6 @@ const pool =
         port: process.env.DB_PORT,
       });
 
-console.log("process.env.NODE_ENV", process.env.NODE_ENV);
-
 const getAllData = (request, response) => {
   pool.query("SELECT * FROM blogs ORDER BY id ASC", (error, blogsResults) => {
     if (error) {
@@ -64,6 +62,27 @@ const getAllData = (request, response) => {
   });
 };
 
+const getDataById = (request, response) => {
+  const { id } = request.body; // Accessing id from request body
+  const type = request.params.type;
+
+  let query = "";
+
+  if (type === "projects") {
+    query = "SELECT * FROM projects WHERE id = $1";
+  } else if (type === "blogs") {
+    query = "SELECT * FROM blogs WHERE id = $1";
+  }
+
+  pool.query(query, [id], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+
 module.exports = {
   getAllData,
+  getDataById,
 };

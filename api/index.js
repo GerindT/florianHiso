@@ -34,6 +34,9 @@ app.get("/", (request, response) => {
 
 app.get("/getAllData", db.getAllData);
 
+// Define a new route to handle fetching data by ID for projects and blogs
+app.post("/singlePost/:type", db.getDataById);
+
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);
 });

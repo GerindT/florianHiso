@@ -34,6 +34,11 @@ Backups are maintained every 90 days using the postgres CLI:
 
 - `\c TempDatabase ` -> `Drop prodDatabase` -> `Create prodDatabase` -> `\c prodDatabase` -> `\i ./apiSql.sql`
 
+## ERD
+
+ERD diagram for the postgres instance:
+![erd](./florian-hiso/public/ERD.PNG)
+
 ## Enjoy 🥳
 
 > for every ε>0, there exists a δ>0, such that if 0<|x−a|<δ, then |f(x)−L|<ε .

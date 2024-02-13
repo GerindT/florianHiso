@@ -27,6 +27,7 @@ export default function Home() {
           setProjects(data.projects);
           setBadges(data.badges);
           setTimeline(data.timeline);
+          console.log(data);
         },
         (error) => console.log(error)
       );
@@ -37,12 +38,13 @@ export default function Home() {
       <MainNavbar />
       <MobileNav />
       <Hero />
+
       <div className=" grid grid-cols-1  gap-[2em] mb-[2em] max-w-full md:max-w-[80vw] justify-center  mx-[1em] md:mx-auto">
         <div className="max-w-full mx-[1em] md:max-w-[70vw] md:mx-auto ">
-          <Stats />
           <General />
           <Timeline timelineList={timeline} />
           <BadgeList badgeList={badges} />
+          <Stats />
         </div>
         <Posts projectList={projects} blogList={blogs} />
       </div>

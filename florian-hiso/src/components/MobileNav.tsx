@@ -1,9 +1,18 @@
 import { FaHouse } from "react-icons/fa6";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function MobileNav() {
   const [isVisible, setIsVisible] = useState(true);
+
+  const { pathname } = useLocation();
+
+  const type = pathname.includes("projects")
+    ? "projects"
+    : pathname.includes("blogs")
+    ? "blogs"
+    : null;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +42,7 @@ export default function MobileNav() {
           type="button"
           className="inline-flex flex-col items-center justify-center px-5 rounded-s-full hover:bg-base-200  group"
         >
-          <a href="#about">
+          <a href={type != null ? "/" : "#about"}>
             <FaHouse className="w-5 h-5 mb-1 text-primary-500  group-hover:text-primary-600 " />
           </a>
         </button>
@@ -42,7 +51,7 @@ export default function MobileNav() {
           type="button"
           className="inline-flex flex-col items-center justify-center px-5  hover:bg-base-200  group"
         >
-          <a href="#projects">
+          <a href={type != null ? "/" : "#projects"}>
             <IoNewspaperSharp className="w-5 h-5 mb-1 text-primary-500  group-hover:text-primary-600 " />
           </a>
         </button>
