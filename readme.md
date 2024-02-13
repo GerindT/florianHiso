@@ -7,6 +7,11 @@ Build for the best professor that exist and will exist
 The frontend was build with `Daisy UI` and `Typescript` on top of `React`.
 It is deployed on netlify.
 
+The backend was build with `Nodejs` and `Postgres` using `DBeaver` as a maintenance and access tool.
+It is deployed on render.
+
+A SQL file and instructions are provided for the DB structure.
+
 ## Install
 
 Dependencies Nodejs 18.x.
@@ -24,9 +29,13 @@ Frontend using netlify cli (needs to be installed globally)
 
 - `ntl deploy --prod`
 
+## External connection
+
+To maintain the database we are using DBeaver. The connection can be done easily buy entering the required credentials provided by render instance.
+
 ## Backup
 
-Backups are maintained every 90 days using the postgres CLI:
+Backups are maintained every 90 days using DBeaver GUI or postgres CLI:
 
 - Create the local dump file -> `pg_dump --no-owner -U postgres -d api > apiSql.sql`
 
@@ -38,6 +47,30 @@ Backups are maintained every 90 days using the postgres CLI:
 
 ERD diagram for the postgres instance:
 ![erd](./florian-hiso/public/ERD.PNG)
+
+Things to note here are:
+
+- left and right show the completion of a timeline, specific year, using a tiny int as a boolean value
+- tags are shown with a json object, the composition is as follows `name:color`
+
+A dummy json tag would be:
+
+`{"NLP":"badge-info"}`
+
+The colors available are:
+
+- badge-neutral
+- badge-primary
+- badge-secondary
+- badge-accent
+- badge-info
+- badge-success
+- badge-warning
+- badge-error
+- badge-outline
+
+If they change or aren't enough, the following link is where you can find the source for these classes:
+https://daisyui.com/components/badge/
 
 ## Enjoy 🥳
 
