@@ -101,9 +101,33 @@ CREATE SEQUENCE public.project_id_seq
 --
 
 CREATE TABLE public.projects (
-    url text
-)
-INHERITS (public.blogs);
+    id integer NOT NULL,
+    title text NOT NULL,
+    userid integer NOT NULL,
+    content text NOT NULL,
+    createdat date DEFAULT CURRENT_DATE NOT NULL,
+    url text NOT NULL
+);
+
+
+--
+-- Name: projects_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.projects_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: projects_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.projects_id_seq OWNED BY public.projects.id;
 
 
 --
@@ -115,7 +139,9 @@ CREATE TABLE public.timeline (
     year text NOT NULL,
     content text NOT NULL,
     "fullDate" date NOT NULL,
-    "createdAt" date DEFAULT CURRENT_DATE NOT NULL
+    "createdAt" date DEFAULT CURRENT_DATE NOT NULL,
+    "left" smallint DEFAULT 0 NOT NULL,
+    "right" smallint DEFAULT 0 NOT NULL
 );
 
 
@@ -157,14 +183,7 @@ ALTER TABLE ONLY public.blogs ALTER COLUMN id SET DEFAULT nextval('public.blogs_
 -- Name: projects id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.projects ALTER COLUMN id SET DEFAULT nextval('public.project_id_seq'::regclass);
-
-
---
--- Name: projects createdat; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.projects ALTER COLUMN createdat SET DEFAULT CURRENT_DATE;
+ALTER TABLE ONLY public.projects ALTER COLUMN id SET DEFAULT nextval('public.projects_id_seq'::regclass);
 
 
 --
@@ -206,8 +225,9 @@ COPY public.blogs (id, title, userid, content, createdat) FROM stdin;
 --
 
 COPY public.projects (id, title, userid, content, createdat, url) FROM stdin;
-6	Project A	1	Description of Project A	2024-02-12	\N
-7	Project B	2	Description of Project B	2024-02-12	\N
+1	Project 1	1	Big chunga	2024-02-13	https://github.com/FlorianHiso18
+2	Project 2 	1	Mikajlli	2024-02-13	https://github.com/FlorianHiso18
+3	Project 3	1	Kur do mi cosh content Florian Hisa	2024-02-13	https://github.com/FlorianHiso18
 \.
 
 
@@ -215,9 +235,13 @@ COPY public.projects (id, title, userid, content, createdat, url) FROM stdin;
 -- Data for Name: timeline; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.timeline (id, year, content, "fullDate", "createdAt") FROM stdin;
-1	2024	Some event happened	2024-02-12	2024-02-12
-2	2023	Another event occurred	2023-01-01	2024-02-12
+COPY public.timeline (id, year, content, "fullDate", "createdAt", "left", "right") FROM stdin;
+1	2024	Some event happened	2024-02-12	2024-02-12	0	0
+3	2022	Idk What happend	2022-01-12	2024-02-13	1	1
+4	2021	I was Drunk	2021-09-01	2024-02-13	1	1
+5	2020	I was fapping	2020-01-10	2024-02-13	1	1
+6	2019	Traps aren't gay ;)	2019-05-05	2024-02-13	0	1
+2	2023	Another event occurred	2023-01-01	2024-02-12	1	1
 \.
 
 
@@ -243,10 +267,17 @@ SELECT pg_catalog.setval('public.project_id_seq', 1, false);
 
 
 --
+-- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.projects_id_seq', 3, true);
+
+
+--
 -- Name: timeline_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.timeline_id_seq', 2, true);
+SELECT pg_catalog.setval('public.timeline_id_seq', 6, true);
 
 
 --
@@ -258,11 +289,11 @@ ALTER TABLE ONLY public.blogs
 
 
 --
--- Name: projects projects_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: projects projects_pk; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.projects
-    ADD CONSTRAINT projects_pkey PRIMARY KEY (id);
+    ADD CONSTRAINT projects_pk PRIMARY KEY (id);
 
 
 --
