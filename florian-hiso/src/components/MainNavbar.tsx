@@ -1,5 +1,3 @@
-import { FaHouse } from "react-icons/fa6";
-
 export default function MainNavbar() {
   return (
     <div className="hidden md:block">
