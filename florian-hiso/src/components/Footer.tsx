@@ -10,14 +10,18 @@ export default function Footer() {
           Hiso
         </p>
         <div className="flex flex-row gap-3">
-          <ImLinkedin2
-            size={22}
-            className="cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
-          />
-          <FaInstagram
-            size={22}
-            className="cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
-          />
+          <a href="https://www.linkedin.com/in/florian-hiso-010b32295/">
+            <ImLinkedin2
+              size={22}
+              className="cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+            />
+          </a>
+          <a href="https://www.instagram.com/the_turing_point/">
+            <FaInstagram
+              size={22}
+              className="cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+            />
+          </a>
         </div>
       </aside>
     </footer>

@@ -41,7 +41,7 @@ const getAllData = (request, response) => {
             }
 
             pool.query(
-              "SELECT * FROM timeline ORDER BY id ASC",
+              "SELECT * FROM timeline ORDER BY year ASC",
               (error, timelineResults) => {
                 if (error) {
                   throw error;

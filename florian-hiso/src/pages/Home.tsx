@@ -32,19 +32,6 @@ export default function Home() {
       );
   }, []);
 
-  console.log(
-    badges,
-    "badges",
-    apiUrl,
-    "apiUrl",
-    blogs,
-    "blogs",
-    projects,
-    "projects",
-    timeline,
-    "timeline"
-  );
-
   return (
     <div>
       <MainNavbar />
@@ -54,10 +41,10 @@ export default function Home() {
         <div className="max-w-full mx-[1em] md:max-w-[70vw] md:mx-auto ">
           <Stats />
           <General />
-          <Timeline />
+          <Timeline timelineList={timeline} />
           <BadgeList badgeList={badges} />
         </div>
-        <Posts />
+        <Posts projectList={projects} blogList={blogs} />
       </div>
       <Footer />
     </div>
