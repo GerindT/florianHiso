@@ -23,6 +23,7 @@ export default function Posts({ projectList, blogList }: Props) {
       style={{
         gridTemplateColumns: "repeat(auto-fit, minmax(min-content, 1fr))",
       }}
+      id="projects"
     >
       {projectList.map((project: Project, i: number) => (
         <div key={i} className="card bg-base-300 shadow-xl">

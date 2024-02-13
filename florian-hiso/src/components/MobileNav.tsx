@@ -33,14 +33,18 @@ export default function MobileNav() {
           type="button"
           className="inline-flex flex-col items-center justify-center px-5 rounded-s-full hover:bg-base-200  group"
         >
-          <FaHouse className="w-5 h-5 mb-1 text-primary-500  group-hover:text-primary-600 " />
+          <a href="#about">
+            <FaHouse className="w-5 h-5 mb-1 text-primary-500  group-hover:text-primary-600 " />
+          </a>
         </button>
         <button
           data-tooltip-target="tooltip-home"
           type="button"
           className="inline-flex flex-col items-center justify-center px-5  hover:bg-base-200  group"
         >
-          <IoNewspaperSharp className="w-5 h-5 mb-1 text-primary-500  group-hover:text-primary-600 " />
+          <a href="#projects">
+            <IoNewspaperSharp className="w-5 h-5 mb-1 text-primary-500  group-hover:text-primary-600 " />
+          </a>
         </button>
         <button
           data-tooltip-target="tooltip-home"
@@ -61,12 +65,6 @@ export default function MobileNav() {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-28"
             >
-              <li>
-                <a className="justify-between">Profile</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
               <li>
                 <div className="dropdown dropdown-end bg-base-100">
                   <input
