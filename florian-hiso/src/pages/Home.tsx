@@ -32,6 +32,19 @@ export default function Home() {
       );
   }, []);
 
+  console.log(
+    badges,
+    "badges",
+    apiUrl,
+    "apiUrl",
+    blogs,
+    "blogs",
+    projects,
+    "projects",
+    timeline,
+    "timeline"
+  );
+
   return (
     <div>
       <MainNavbar />

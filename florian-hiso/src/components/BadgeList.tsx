@@ -1,17 +1,17 @@
-const colors = [
-  "badge badge-default",
-  "badge badge-neutral",
-  "badge badge-primary",
-  "badge badge-secondary",
-  "badge badge-accent",
-  "badge badge-ghost",
-  "badge badge-outline",
-  "badge badge-success",
-  "badge badge-error",
-  "badge badge-warning",
-  "badge badge-info",
-  "badge badge-dark",
-];
+// const colors = [
+//   "badge badge-default",
+//   "badge badge-neutral",
+//   "badge badge-primary",
+//   "badge badge-secondary",
+//   "badge badge-accent",
+//   "badge badge-ghost",
+//   "badge badge-outline",
+//   "badge badge-success",
+//   "badge badge-error",
+//   "badge badge-warning",
+//   "badge badge-info",
+//   "badge badge-dark",
+// ];
 
 type Badge = {
   name: string;
