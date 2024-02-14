@@ -37,9 +37,11 @@ export default function Posts({ projectList, blogList }: Props) {
         <div key={i} className="card bg-base-300 shadow-xl">
           <div className="card-body">
             <h2 className="card-title">{project.title}</h2>
-            <h3>Florian Hiso</h3>
+            <h3>
+              Florian Hiso <b>· </b>
+              <a className="link">{project.url}</a>
+            </h3>
             <p>{project.content.substring(0, 200)}...</p>
-            <a className="link">{project.url}</a>
             <div className="badge  p-[0.8em] badge-primary opacity-80 cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
               <IoIosTime /> {formatDateDifference(project.createdat)}
             </div>

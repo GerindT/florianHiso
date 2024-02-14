@@ -17,7 +17,7 @@ export default function MobileNav() {
     : null;
 
   useEffect(() => {
-    themeChange(false);
+    // themeChange(false);
     // 👆 false parameter is required for react project
     const handleScroll = () => {
       const isAtBottom =

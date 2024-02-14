@@ -70,13 +70,17 @@ export default function SinglePost() {
           <div className="card  bg-base-300 shadow-xl mt-[0.2em] mb-[2em]">
             <div className="card-body">
               <h2 className="card-title"> {post.title}</h2>
-              <h3>Florian Hiso</h3>
+              <h3>
+                Florian Hiso{" "}
+                {type == "projects" && (
+                  <>
+                    <b>· </b>
+                    <a className="link">{post.url}</a>{" "}
+                  </>
+                )}
+              </h3>
               <p className="opacity-80"> {post.content} </p>
-              {type == "projects" && (
-                <p>
-                  For more information <a className="link "> {post.url}</a>
-                </p>
-              )}
+
               <div className="badge p-[0.8em] badge-primary opacity-80 cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
                 <IoIosTime /> {formatDateDifference(post.createdat)}
               </div>
