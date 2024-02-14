@@ -2,6 +2,8 @@ import { FaHouse } from "react-icons/fa6";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { FaFilePdf, FaRegFilePdf } from "react-icons/fa6";
+import { themeChange } from "theme-change";
 
 export default function MobileNav() {
   const [isVisible, setIsVisible] = useState(true);
@@ -15,6 +17,8 @@ export default function MobileNav() {
     : null;
 
   useEffect(() => {
+    themeChange(false);
+    // 👆 false parameter is required for react project
     const handleScroll = () => {
       const isAtBottom =
         window.innerHeight + window.scrollY >= document.body.offsetHeight;
@@ -37,24 +41,24 @@ export default function MobileNav() {
       }`}
     >
       <div className="grid h-full w-full grid-cols-3 mx-auto">
-        <button
+        <a
           data-tooltip-target="tooltip-home"
-          type="button"
+          href={type != null ? "/" : "#about"}
           className="inline-flex flex-col items-center justify-center px-5 rounded-s-full hover:bg-base-200  group"
         >
-          <a href={type != null ? "/" : "#about"}>
+          <button type="button">
             <FaHouse className="w-5 h-5 mb-1 text-primary-500  group-hover:text-primary-600 " />
-          </a>
-        </button>
-        <button
+          </button>
+        </a>
+        <a
           data-tooltip-target="tooltip-home"
-          type="button"
+          href={type != null ? "/" : "#projects"}
           className="inline-flex flex-col items-center justify-center px-5  hover:bg-base-200  group"
         >
-          <a href={type != null ? "/" : "#projects"}>
+          <button type="button">
             <IoNewspaperSharp className="w-5 h-5 mb-1 text-primary-500  group-hover:text-primary-600 " />
-          </a>
-        </button>
+          </button>
+        </a>
         <button
           data-tooltip-target="tooltip-home"
           type="button"
@@ -75,10 +79,29 @@ export default function MobileNav() {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-28"
             >
               <li>
+                <a
+                  href="/cv_Florian_Hiso_al.pdf"
+                  download="cv_Florian_Hiso_al.pdf"
+                >
+                  Albanian CV
+                  <FaFilePdf className="text-xl text-primary cursor-pointer" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/cv_Florian_Hiso_al.pdf"
+                  download="cv_Florian_Hiso_al.pdf"
+                >
+                  English CV
+                  <FaRegFilePdf className="text-xl text-primary cursor-pointer" />
+                </a>
+              </li>
+              <li>
                 <div className="dropdown dropdown-end bg-base-100">
                   <input
+                    data-toggle-theme="lemonade,coffee"
+                    data-act-class="ACTIVECLASS"
                     type="checkbox"
-                    value="lemonade"
                     className="toggle theme-controller"
                   />
                 </div>
