@@ -3,7 +3,6 @@ import { IoNewspaperSharp } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { FaFilePdf, FaRegFilePdf } from "react-icons/fa6";
-import { themeChange } from "theme-change";
 
 export default function MobileNav() {
   const [isVisible, setIsVisible] = useState(true);
