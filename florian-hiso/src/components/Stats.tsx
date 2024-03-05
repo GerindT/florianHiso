@@ -1,7 +1,7 @@
 import { FaFilePdf, FaRegFilePdf } from "react-icons/fa6";
 export default function Stats() {
   return (
-    <div className="mockup-code mt-[1em] max-w-[80vw]">
+    <div className="mockup-code mt-[1em] md:max-w-[50vw] m-auto">
       <pre data-prefix="$">
         <code>pip install Awesome_Projects</code>
       </pre>

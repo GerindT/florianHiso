@@ -24,7 +24,7 @@ type BadgeListProps = {
 
 export default function BadgeList({ badgeList }: BadgeListProps) {
   return (
-    <div className="w-86 pt-[1em] flex flex-wrap gap-1  ">
+    <div className="w-86 pt-[1em] flex flex-wrap gap-1 justify-center  ">
       <>
         {badgeList
           .sort(() => Math.random() - 0.5) // Shuffle the array
