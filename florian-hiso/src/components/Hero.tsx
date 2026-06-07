@@ -10,17 +10,14 @@ export default function Hero() {
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">
           <h1 className="mb-5 text-5xl font-bold">
-            Hello there, General Kenoby
+            Hi, I'm Florian Hiso.
           </h1>
           <p className="mb-5  ">
-            Are you looking for the best place to find information related to
-            computer science? You are in the right place. <br /> Do you need
-            useless information? You are in the right place. <br /> Do you need
-            to waste your time? You are in the right place. <br />
-            We are here to help you.
+            A Software Developer and MSc student passionate about research,
+            teaching, and developing AI.
           </p>
           <button className="btn btn-primary">
-            <a href="#about"> Come Child </a>
+            <a href="#about"> Learn More </a>
           </button>
         </div>
       </div>
