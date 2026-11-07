@@ -2,7 +2,7 @@
 
 A portfolio site for Florian Hiso: his academic work, a career timeline, skill badges, and project and blog posts loaded from a small Postgres-backed API.
 
-**Live:** [florian-hiso.netlify.app](https://florian-hiso.netlify.app) (the front end loads; the API that serves the timeline and posts is currently offline)
+**Status:** retired. Florian now runs his own site, so this one is no longer hosted; the code stays here as a reference. The screenshot below shows it live.
 
 ![Florian Hiso portfolio: hero section over an illustrated map](docs/screenshot.webp)
 
